@@ -181,21 +181,9 @@
           statusMessageEl.textContent = 'Live leaderboard loaded successfully.';
           renderLeaderboard(rows);
         } catch (error) {
-          console.warn('Using fallback sample data because the live API is unavailable or unauthorized.', error);
-          const fallback = [
-            { rank: 1, playerName: 'Player 1', totalWagered: 22000 },
-            { rank: 2, playerName: 'Player 2', totalWagered: 18000 },
-            { rank: 3, playerName: 'Player 3', totalWagered: 13500 },
-            { rank: 4, playerName: 'Player 4', totalWagered: 9600 },
-            { rank: 5, playerName: 'Player 5', totalWagered: 8200 },
-            { rank: 6, playerName: 'Player 6', totalWagered: 6400 },
-            { rank: 7, playerName: 'Player 7', totalWagered: 5200 },
-            { rank: 8, playerName: 'Player 8', totalWagered: 4600 },
-            { rank: 9, playerName: 'Player 9', totalWagered: 3900 },
-            { rank: 10, playerName: 'Player 10', totalWagered: 3000 }
-          ];
-          statusMessageEl.textContent = 'Live API unavailable — showing demo leaderboard.';
-          renderLeaderboard(fallback);
+          console.warn('No wagers yet.', error);
+          statusMessageEl.textContent = 'No wagers yet. Check back soon!';
+          leaderboardBody.innerHTML = '<tr><td colspan="4" class="px-5 py-8 text-center text-slate-400">Waiting for first wager...</td></tr>';
         }
       }
 
