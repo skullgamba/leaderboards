@@ -270,7 +270,7 @@
 
             // Common failure cases
             if (response.status === 401 || response.status === 403) {
-              statusMessageEl.textContent = `Authorization failed (${response.status}). Paste a valid token and try \"Load leaderboard\".`;
+              statusMessageEl.textContent = `Authorization failed (${response.status}). Paste a valid token and try "Load leaderboard".`;
             } else if (response.status >= 400 && response.status < 500) {
               statusMessageEl.textContent = `Client error ${response.status} — check token, params, or API permissions.`;
             } else {
