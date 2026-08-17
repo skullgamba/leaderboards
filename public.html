@@ -152,13 +152,14 @@
           limit: '10'
         });
 
-        const url = `${API_BASE}?${params.toString()}`;
+        const targetUrl = `${API_BASE}?${params.toString()}`;
+        const corsProxyUrl = 'https://corsproxy.io/?' + encodeURIComponent(targetUrl);
         
-        console.debug('[Public Leaderboard] Fetching from:', url);
+        console.debug('[Public Leaderboard] Fetching from:', corsProxyUrl);
 
         try {
           statusMessageEl.textContent = 'Loading live data from RustyWager...';
-          const response = await fetch(url, { mode: 'cors' });
+          const response = await fetch(corsProxyUrl);
 
           console.debug('[Public Leaderboard] Response status:', response.status);
           
